@@ -39,6 +39,17 @@ class Node:
         self.left = left
         self.right = right
 
+def make_node(arr, indx):
+  node = Node(arr[indx])
+
+  if indx * 2 + 1 < len(arr) and arr[indx * 2 + 1] != -1:
+    node.left = make_node(arr, indx * 2 + 1)
+  if indx * 2 + 2 < len(arr) and arr[indx * 2 + 2] != -1:
+    node.right = make_node(arr, indx * 2 + 2)
+
+  return node
+
+
 import unittest
 
 class FloydTest(unittest.TestCase):
@@ -79,6 +90,17 @@ class FloydTest(unittest.TestCase):
         node1.right = node5
 
         self.assertEqual(maxGCD(node1), (4, 5))
+
+    def test_binary_big_tree(self):
+        big_list = [(num * (num + 1)) for num in range(1, 2**5)]
+        node32 = make_node(big_list, 0)
+        self.assertEqual(maxGCD(node32), (62, 240))
+
+        big_list = [(num * (num + 1)) for num in range(1, 2**6)]
+        node32 = make_node(big_list, 0)
+        self.assertEqual(maxGCD(node32), (126, 992))
+
+
 
 
 if __name__ == "__main__":
