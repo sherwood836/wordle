@@ -41,11 +41,11 @@ class FloydTest(unittest.TestCase):
         self.assertFalse(unique_find2('aasdfghjkl'))
 
     def test_number_two(self):
-        self.assertEquals(split_chocolate(5, 5), 24)
+        self.assertEqual(split_chocolate(5, 5), 24)
 
     def test_number_three(self):
-        self.assertEquals(divide_evenly(12, 2), [6, 6])
-        self.assertEquals(divide_evenly(23, 5), [4, 4, 5, 5, 5])
+        self.assertEqual(divide_evenly(12, 2), [6, 6])
+        self.assertEqual(divide_evenly(23, 5), [4, 4, 5, 5, 5])
 
 
 if __name__ == "__main__":

@@ -21,33 +21,33 @@ class FloydTest(unittest.TestCase):
     def test_has_loop2(self):
         search_list = [1, 2, 3, 4, 5]
 
-        self.assertEquals(find_index(search_list, 4), 3)
+        self.assertEqual(find_index(search_list, 4), 3)
 
     def test_has_loop1(self):
         search_list = [1, 2, 3, 4, 5]
 
-        self.assertEquals(find_index(search_list, 1), 0)
+        self.assertEqual(find_index(search_list, 1), 0)
 
     def test_has_loop22(self):
         search_list = [1, 2, 3, 4, 5]
 
-        self.assertEquals(find_index(search_list, 2), 1)
+        self.assertEqual(find_index(search_list, 2), 1)
 
     def test_has_loop3(self):
         search_list = [1, 2, 3, 4, 5]
 
-        self.assertEquals(find_index(search_list, 3), 2)
+        self.assertEqual(find_index(search_list, 3), 2)
 
 
     def test_has_loop400(self):
         search_list = [1, 2, 3, 4, 5]
 
-        self.assertEquals(find_index(search_list, 400), None)
+        self.assertEqual(find_index(search_list, 400), None)
 
     def test_has_loop100(self):
         search_list = [i for i in range(1, 100)]
 
-        self.assertEquals(find_index(search_list, 45), 44)
+        self.assertEqual(find_index(search_list, 45), 44)
 
 
 if __name__ == "__main__":

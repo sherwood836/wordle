@@ -41,7 +41,7 @@ class FloydTest(unittest.TestCase):
         node1 = Node(1, node2)
         node6.next = node2
 
-        self.assertEquals(find_loop(node1), node2)
+        self.assertEqual(find_loop(node1), node2)
 
     def test_has_loop3(self):
         node6 = Node(6, None)
@@ -52,7 +52,7 @@ class FloydTest(unittest.TestCase):
         node1 = Node(1, node2)
         node6.next = node3
 
-        self.assertEquals(find_loop(node1), node3)
+        self.assertEqual(find_loop(node1), node3)
 
     def test_has_loop4(self):
         node6 = Node(6, None)
@@ -63,7 +63,7 @@ class FloydTest(unittest.TestCase):
         node1 = Node(1, node2)
         node6.next = node4
 
-        self.assertEquals(find_loop(node1), node4)
+        self.assertEqual(find_loop(node1), node4)
 
     def test_has_no_loop(self):
         node6 = Node(6, None)
