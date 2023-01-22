@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class palindrome
 {
@@ -9,13 +8,10 @@ public class palindrome
 
         System.out.println(p.is_palindrome("aabbbbaa"));
         System.out.println(p.is_palindrome("aabbBbaa"));
-
         System.out.println(p.is_palindrome("aabbbaa"));
-
 
         System.out.println(p.all_palindrome("aabbbbaa"));
         System.out.println(p.all_palindrome("aabbBbaa"));
-
         System.out.println(p.all_palindrome("aabbbaa"));
     }
 
@@ -28,9 +24,6 @@ public class palindrome
         {
             rev_str = x.concat(rev_str);
         }
-
-        // System.out.println(rev_str);
-        // System.out.println(str.substring((int)((str.length() + 1) / 2), str.length()));
 
         return rev_str.equals(str.substring((int)((str.length() + 1) / 2), str.length()));
     }
@@ -50,10 +43,8 @@ public class palindrome
             }
         }
 
-        
+
         return all_list;
     }
-
-
 
 }
