@@ -1,4 +1,4 @@
-import org.omg.IOP.CodecPackage.InvalidTypeForEncodingHelper;
+import java.util.ArrayList;
 
 public class binary_gcd
 {
@@ -21,6 +21,11 @@ public class binary_gcd
         {
             this.t1 = t1;
             this.t2 = t2;
+        }
+
+        public String toString()
+        {
+            return "" + t1 + ", " + t2;
         }
     }
 
@@ -65,19 +70,35 @@ public class binary_gcd
         node1.left = node3;
         node1.right = node5;
 
-        // System.out.println(p.maxGCD(node1));
+        System.out.println(p.maxGCD(node1));
         System.out.println(new Tuple<Integer>(new Integer(4), 5));
 
-        // big_list = [(num * (num + 1)) for num in range(1, 2**5)];
-        // node32 = p.make_node(big_list, 0);
-        // System.out.println(p.maxGCD(node32));
-        // System.out.println((62, 240));
+        ArrayList<Integer> big_list = new ArrayList<Integer>();
+        for (Integer i = 1; i <= 32; i++)
+            big_list.add(i * (i+1));
+        Node node32 = p.make_node(big_list, 0);
+        System.out.println(p.maxGCD(node32));
+        System.out.println(new Tuple<Integer>(62, 240));
 
-        // big_list = [(num * (num + 1)) for num in range(1, 2**6)];
-        // node32 = p.make_node(big_list, 0);
-        // System.out.println(p.maxGCD(node32));
-        // System.out.println((126, 992));
+        big_list = new ArrayList<Integer>();
+        for (Integer i = 1; i <= 64; i++)
+            big_list.add(i * (i+1));
+        node32 = p.make_node(big_list, 0);
+        System.out.println(p.maxGCD(node32));
+        System.out.println(new Tuple<Integer>(126, 992));
 
+    }
+
+    Node make_node(ArrayList<Integer> arr, int indx)
+    {
+        Node node = new Node(arr.get(indx));
+
+        if (indx * 2 + 1 < arr.size() && arr.get(indx * 2 + 1) != -1)
+            node.left = make_node(arr, indx * 2 + 1);
+        if (indx * 2 + 2 < arr.size() && arr.get(indx * 2 + 2) != -1)
+            node.right = make_node(arr, indx * 2 + 2);
+
+        return node;
     }
 
     int gcd(int int1, int int2)
