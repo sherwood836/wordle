@@ -1,4 +1,22 @@
 import java.util.ArrayList;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// import org.junit.jupiter.api.Test;
+
+// class MyFirstJUnitJupiterTests 
+// {
+
+//     @Test
+//     void addition()
+//     {
+//         binary_gcd p = new binary_gcd();
+
+//         System.out.println(p.gcd(4, 8));
+//         System.out.println(4);
+//         assertEquals(4, p.gcd(4, 8));
+//     }
+
+// }
 
 public class binary_gcd
 {
