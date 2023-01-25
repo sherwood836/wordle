@@ -1,5 +1,7 @@
 package main
 
+// run this with "go run find_chain.go"
+
 import (
 	"fmt"
 	"sort"
