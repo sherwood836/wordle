@@ -50,15 +50,18 @@ public class iter_of_iter implements Iterator
 
     public boolean hasNext()
     {
-        if (iter_list.get(current_iter_idx).hasNext())
-            return true;
-
-        for (int idx = 1; idx <= iter_list.size(); idx++)
+        if (iter_list.size() > 0)
         {
-            current_iter_idx = (current_iter_idx + idx)%iter_list.size();
-
             if (iter_list.get(current_iter_idx).hasNext())
                 return true;
+
+            for (int idx = 1; idx <= iter_list.size(); idx++)
+            {
+                current_iter_idx = (current_iter_idx + idx)%iter_list.size();
+
+                if (iter_list.get(current_iter_idx).hasNext())
+                    return true;
+            }
         }
 
         return false;
@@ -69,7 +72,12 @@ public class iter_of_iter implements Iterator
         if (hasNext())
         { 
             Object next_value = (int)iter_list.get(current_iter_idx).next();
+            int old_index = current_iter_idx;
             current_iter_idx = (current_iter_idx + 1)%iter_list.size();
+
+            if (!iter_list.get(old_index).hasNext())
+                iter_list.remove(old_index);
+
             return next_value;
         }
 
