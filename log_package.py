@@ -12,13 +12,33 @@ def find_package(log_list, machine, timestamp):
     return package_set
 
 class PackageFinder:
-    def __init__(log_list):
-        pass
+    t_m_p_map = {}
+
+    def __init__(self, log_list):
+
+        for log in log_list:
+            timestamp = int(log[2])
+
+            if not self.t_m_p_map.get(timestamp):
+                self.t_m_p_map[timestamp] = {}
+
+            if not self.t_m_p_map.get(timestamp).get(log[0]):
+                self.t_m_p_map[timestamp][log[0]] = set()
+
+            self.t_m_p_map[timestamp][log[0]].add(log[1])
+
 
     def find_package(self, machine, timestamp):
-        pass
+        package_set = set()
+        timestamp = int(timestamp)
 
+        for each_time in range(timestamp - 2, timestamp):
+            if self.t_m_p_map.get(each_time):
+                if self.t_m_p_map.get(each_time).get(machine):
+                    for package in self.t_m_p_map.get(each_time).get(machine):
+                        package_set.add(package)
 
+        return package_set
 
 import unittest
 
@@ -34,6 +54,10 @@ class FloydTest(unittest.TestCase):
         timestamp = "4"
 
         print(f"one find package: {find_package(log_list, machine, timestamp)}")
+        self.assertEqual(set(['p2']), find_package(log_list, machine, timestamp))
+
+        my_obj = PackageFinder(log_list)
+        self.assertEqual(set(['p2']), my_obj.find_package(machine, timestamp))
 
 
 if __name__ == "__main__":
