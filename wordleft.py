@@ -116,6 +116,16 @@ print(keep_correct_index(right_letter,
                          remove_wrong_index(right_letter_wrong_index, 
                          find_word_left(wrong_letter_list, valid_word_list)))))
 
+wrong_letter_list = ['m', 'u', 'b', 'p', 'g', 'r', 'c', 's', 'e', 't', 'g', 'n', 'h', 'o', 'w', 'd', 'y']
+right_letter_wrong_index = [('a', 0), ('i', 2)]
+right_letter = [('l', 1)]
+
+print(keep_correct_index(right_letter, 
+                         remove_wrong_index(right_letter_wrong_index, 
+                         find_word_left(wrong_letter_list, valid_word_list))))
+
+
+
 
 
 
